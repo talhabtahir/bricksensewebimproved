@@ -9,7 +9,7 @@ body {
 }
 
 a {
-    color: #FF6F61;
+    color: #be1e2d;
     transition: 0.5s;
 }
 
@@ -186,7 +186,7 @@ h6 {
 }
 
 #header .header-content .btn:hover {
-    color: #FF6F61;
+    color: #be1e2d;
     background: #ffffff;
 }
 
@@ -239,7 +239,7 @@ h6 {
     height: 1px;
     top: 0;
     left: calc(50% - 100px);
-    background: #FF6F61;
+    background: #be1e2d;
 }
 
 .section-header::after {
@@ -254,7 +254,7 @@ h6 {
 
 .section-header h2 {
     position: relative;
-    color: #FF6F61;
+    color: #be1e2d;
     font-size: 60px;
     text-align: center;
     margin-bottom: 5px;
@@ -329,7 +329,7 @@ h6 {
 }
 
 #about .about-content ul li i {
-    color: #FF6F61;
+    color: #be1e2d;
 }
 
 #about .about-img {
@@ -384,18 +384,18 @@ h6 {
     float: left;
     margin-top: 6px;
     padding: 15px 0;
-    border: 2px solid #FF6F61;
+    border: 2px solid #be1e2d;
     border-radius: 5px;
     transition: all .3s;
 }
 
 #feature .product-icon i {
-    color: #FF6F61;
+    color: #be1e2d;
     font-size: 32px;
 }
 
 #feature .product-feature:hover .product-icon {
-    background: #FF6F61;
+    background: #be1e2d;
 }
 
 #feature .product-feature:hover .product-icon i {
@@ -417,7 +417,7 @@ h6 {
 }
 
 #feature .product-feature h2 {
-    color: #FF6F61;
+    color: #be1e2d;
     font-size: 22px;
     margin-bottom: 5px;
 }
@@ -498,13 +498,13 @@ h6 {
 }
 
 #activation .activation-col i {
-    color: #FF6F61;
+    color: #be1e2d;
     font-size: 90px;
     margin-bottom: 15px;
 }
 
 #activation .activation-col h2 {
-    color: #FF6F61;
+    color: #be1e2d;
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -572,7 +572,7 @@ h6 {
 }
 
 #price .price-item.featured-item .price-header {
-    background: #FF6F61;
+    background: #be1e2d;
 }
 
 #price .price-title h2 {
@@ -628,11 +628,11 @@ h6 {
 }
 
 #price .price-item.featured-item .price-body::before {
-    border-top: 100px solid #FF6F61;
+    border-top: 100px solid #be1e2d;
 }
 
 #price .price-item.featured-item .price-body::after {
-    border-bottom: 100px solid #FF6F61; 
+    border-bottom: 100px solid #be1e2d; 
 }
 
 #price .price-description ul {
@@ -662,7 +662,7 @@ h6 {
 }
 
 #price .price-item.featured-item .price-footer {
-    background: #FF6F61;
+    background: #be1e2d;
 }
 
 #price .price-action a {
@@ -670,7 +670,7 @@ h6 {
     padding: 10px 25px;
     color: #ffffff;
     font-size: 16px;
-    background: #FF6F61;
+    background: #be1e2d;
     border-radius: 5px;
 }
 
@@ -679,18 +679,18 @@ h6 {
 }
 
 #price .price-action a:hover {
-    color: #FF6F61;
+    color: #be1e2d;
     background: #ffffff;
 }
 
 #price .price-item.featured-item .price-action a {
-    color: #FF6F61;
+    color: #be1e2d;
     background: #222222;
 }
 
 #price .price-single:hover .price-action a,
 #price .price-item.featured-item .price-action a:hover {
-    color: #FF6F61;
+    color: #be1e2d;
     background: #ffffff;
 }
 
@@ -738,7 +738,7 @@ h6 {
 }
 
 #screenshot .owl-dot.active {
-    background: #FF6F61;
+    background: #be1e2d;
 }
 
 
@@ -894,7 +894,7 @@ h6 {
 }
 
 #testimonials .owl-dot.active {
-    background: #FF6F61;
+    background: #be1e2d;
 }
 
 
@@ -922,7 +922,7 @@ h6 {
 
 #contact .form-control:focus {
     box-shadow: none;
-    border-color: #FF6F61;
+    border-color: #be1e2d;
 }
 
 #contact textarea.form-control {
@@ -931,15 +931,15 @@ h6 {
 }
 
 #contact button.btn {
-    color: #FF6F61;
+    color: #be1e2d;
     background: #ffffff;
-    border: 1px solid #FF6F61;
+    border: 1px solid #be1e2d;
 }
 
 #contact button.btn:hover {
     color: #ffffff;
-    background: #FF6F61;
-    border-color: #FF6F61;
+    background: #be1e2d;
+    border-color: #be1e2d;
 }
 
 #contact .contact-map {
@@ -995,8 +995,8 @@ h6 {
 }
 
 #footer .social a:hover {
-    border-color: #FF6F61;
-    background: #FF6F61;
+    border-color: #be1e2d;
+    background: #be1e2d;
 }
 
 #footer .social a:hover i {
@@ -1012,6 +1012,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
