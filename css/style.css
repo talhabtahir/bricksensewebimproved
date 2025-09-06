@@ -134,6 +134,7 @@ h6 {
 /**********************************/
 #header {
     position: relative;
+    height: 100vh;
     padding: 40px 0 50px 0;
     background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../img/brickkiln.jpg);
     background-position: center;
@@ -193,7 +194,6 @@ h6 {
 @media (max-width: 992px) {
     #header .header-content h2 {
         font-size: 60px;
-        min-height: 100vh;
     }
     
     #header .header-content p {
@@ -1013,6 +1013,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
