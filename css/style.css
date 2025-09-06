@@ -43,7 +43,7 @@ h6 {
 .back-to-top {
     position: fixed;
     display: none;
-    background: #FF6F61;
+    background: #be1e2d;
     color: #ffffff;
     width: 44px;
     height: 44px;
@@ -111,7 +111,7 @@ h6 {
     
     #nav .navbar-dark .navbar-nav .nav-link:hover,
     #nav .navbar-dark .navbar-nav .nav-link.active {
-        background: #FF6F61;
+        background: #be1e2d;
         transition: none;
     }
 }
@@ -1012,6 +1012,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
