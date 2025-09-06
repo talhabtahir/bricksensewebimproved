@@ -150,7 +150,7 @@ h6 {
 #header .header-content .logo {
     position: relative;
     display: inline-block;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 #header .header-content .logo img {
@@ -1012,6 +1012,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
