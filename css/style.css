@@ -192,6 +192,9 @@ h6 {
 }
 
 @media (max-width: 992px) {
+    #header {
+        height: 100vh;
+    }
     #header .header-content h2 {
         font-size: 60px;
     }
@@ -1013,6 +1016,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
