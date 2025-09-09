@@ -155,8 +155,10 @@ h6 {
 }
 
 #header .header-content .logo img {
-    max-width: 100px;
-    max-height: 100px;
+/*     max-width: 100px;
+    max-height: 100px; */
+    width: 800px;
+    height: auto;
 }
 
 #header .header-content h2 {
@@ -1014,6 +1016,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
