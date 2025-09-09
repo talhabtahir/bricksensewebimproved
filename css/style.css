@@ -194,9 +194,9 @@ h6 {
 }
 
 @media (max-width: 992px) {
-    #header {
-        height: 600px;
-    }
+    .logo img {
+    max-width: 600px;
+  }
     #header .header-content h2 {
         font-size: 60px;
     }
@@ -207,9 +207,9 @@ h6 {
 }
 
 @media (max-width: 768px) {
-    #header {
-        height: 600px;
-    }
+    .logo img {
+    max-width: 600px;
+  }
     #header .header-content h2 {
         font-size: 45px;
     }
@@ -220,9 +220,9 @@ h6 {
 }
 
 @media (max-width: 576px) {
-    #header {
-        height: 400px;
-    }
+    .logo img {
+    max-width: 400px;
+  }
     #header .header-content h2 {
         font-size: 35px;
     }
@@ -1024,6 +1024,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
