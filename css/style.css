@@ -195,7 +195,7 @@ h6 {
 
 @media (max-width: 992px) {
     .logo img {
-    max-width: 60vw;
+    max-width: 600px;
   }
     #header .header-content h2 {
         font-size: 60px;
@@ -221,7 +221,7 @@ h6 {
 
 @media (max-width: 576px) {
     .logo img {
-    max-width: 60vw;
+    max-width: 300px;
   }
     #header .header-content h2 {
         font-size: 35px;
@@ -1024,6 +1024,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
