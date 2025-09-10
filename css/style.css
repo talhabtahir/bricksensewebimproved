@@ -162,7 +162,7 @@ h6 {
 }
 
 #header .header-content hr {
-  margin: 20px auto 50px;
+  margin: 10px auto 40px;
   width: 10%;
   height: 1px;
   border: none;
@@ -207,8 +207,9 @@ h6 {
     height: 40px;
     text-align: center;
     padding: 7px 0;
-    margin: 20px 320px;
-/*     margin-bottom: 10px; */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: white;
 /*     border: 1px solid #ffffff;
     border-radius: 5px; */
 }
@@ -1044,6 +1045,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
