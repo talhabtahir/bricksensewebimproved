@@ -164,7 +164,7 @@ h6 {
 #header .header-content hr {
   width: 60vw; /* 60% of the viewport width */
   max-width: 500px;
-  height: 0.5px;
+  height: 2px;
   margin: 30px auto 20px;
   border: none;
   animation: pulseLine 3s infinite ease-in-out;
@@ -1033,6 +1033,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
