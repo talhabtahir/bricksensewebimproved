@@ -163,7 +163,7 @@ h6 {
 
 #header .header-content hr {
   margin: 20px auto 50px;
-  width: 60%;
+  width: 30%;
   height: 1px;
   border: none;
   background: white;
@@ -1032,6 +1032,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
