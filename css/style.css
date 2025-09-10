@@ -135,7 +135,7 @@ h6 {
 #header {
     position: relative;
     height: 100dvh;
-    padding: 110px 0 70px 0;
+    padding: 70px 0 70px 0;
     background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../img/brickkiln.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -159,6 +159,16 @@ h6 {
     max-height: 100px; */
     width: 600px;
     height: auto;
+}
+
+#header .header-content hr {
+  width: 60vw; /* 60% of the viewport width */
+  max-width: 500px;
+  height: 2px;
+  margin: 30px auto 20px;
+  border: none;
+  background: linear-gradient(to right, #e63946, #a8dadc);
+  animation: pulseLine 3s infinite ease-in-out;
 }
 
 #header .header-content h2 {
@@ -1024,6 +1034,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
