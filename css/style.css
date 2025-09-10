@@ -201,6 +201,17 @@ h6 {
     background: #ffffff;
 }
 
+#header .header-content .social a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 7px 0;
+    margin-bottom: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+
 @media (max-width: 992px) {
     .logo img {
     max-width: 600px;
@@ -1032,6 +1043,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
