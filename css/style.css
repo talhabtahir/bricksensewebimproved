@@ -162,11 +162,11 @@ h6 {
 }
 
 #header .header-content hr {
-  margin: 30px auto 20px;
+  margin: 20px 20px;
   width: 60%;
-  height: 2px;
+  height: 1px;
   border: none;
-  background: linear-gradient(to right, #e63946, #a8dadc);
+  background: white;
   animation: pulseLine 3s infinite ease-in-out;
 }
 
@@ -1033,6 +1033,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
