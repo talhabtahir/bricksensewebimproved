@@ -162,12 +162,11 @@ h6 {
 }
 
 #header .header-content hr {
-  margin: 20px 20px;
+  margin: 20px auto 50px;
   width: 60%;
   height: 1px;
   border: none;
   background: white;
-  animation: pulseLine 3s infinite ease-in-out;
 }
 
 #header .header-content h2 {
@@ -1033,6 +1032,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
