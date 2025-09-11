@@ -407,8 +407,8 @@ h6 {
   font-size: 1.2rem;
   transition: color 0.3s ease;
   opacity: 0;
-  animation: fadeIn 1.8s ease forwards;
-  animation-delay: 1.3s;
+  animation: fadeIn 2.0s ease forwards;
+  animation-delay: 1.5s;
 }
 
 .landing-social a:hover {
@@ -1280,6 +1280,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
