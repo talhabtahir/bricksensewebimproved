@@ -266,7 +266,7 @@ h6 {
     position: relative;
     height: 100dvh;
     padding: 70px 0 70px 0;
-    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../img/back.png);
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../img/back.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -290,7 +290,7 @@ h6 {
 
 /* Logo */
 .landing-logo {
-  width: clamp(300px, 400vw, 600px); /* responsive scaling */
+  width: clamp(300px, 400vw, 700px); /* responsive scaling */
   height: auto; /* keep aspect ratio */
   display: block;
   margin: 0 auto 1rem auto; /* center horizontally and add spacing below */
@@ -1226,6 +1226,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
