@@ -292,18 +292,17 @@ h6 {
   animation: fadeIn 1.5s ease-in-out forwards;
   animation-delay: 0.2s;
 }
-/* /* Dotted pattern */
-.landing::after {
+/* Dotted pattern */
+/* .landing::after {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
 
-  /* white semi-transparent dots */
   background-image: radial-gradient(rgb(255,255,255) 0.7px, transparent 0px);
   background-size: 6px 6px;
 
-  z-index: 2; /* stays above image, below overlay */
+  z-index: 2; 
   opacity: 0;
   animation: fadeIn 1.5s ease-in-out forwards;
   animation-delay: 0.2s;
@@ -1281,6 +1280,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
