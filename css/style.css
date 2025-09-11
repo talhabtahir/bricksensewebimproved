@@ -292,7 +292,7 @@ h6 {
   animation: fadeIn 1.5s ease-in-out forwards;
   animation-delay: 0.2s;
 }
-/* Dotted pattern */
+/* /* Dotted pattern */
 .landing::after {
   content: "";
   position: absolute;
@@ -307,7 +307,7 @@ h6 {
   opacity: 0;
   animation: fadeIn 1.5s ease-in-out forwards;
   animation-delay: 0.2s;
-}
+} */
 .landing .container {
   position: relative;
   z-index: 3;
@@ -1281,6 +1281,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
