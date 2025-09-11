@@ -407,7 +407,7 @@ h6 {
   font-size: 1.2rem;
   transition: color 0.3s ease;
   opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
+  animation: fadeIn 1.8s ease forwards;
   animation-delay: 1.5s;
 }
 
@@ -1280,6 +1280,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
