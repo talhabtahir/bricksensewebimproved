@@ -297,7 +297,7 @@ h6 {
 }
 .landing .container {
   position: relative;
-  z-index: 0;
+  z-index: 3;
 }
 
 /* Logo */
@@ -1247,6 +1247,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
