@@ -136,7 +136,7 @@ h6 {
     position: relative;
     height: 100dvh;
     padding: 70px 0 70px 0;
-    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../img/back.png);
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(../img/back.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -317,14 +317,14 @@ h6 {
 /* Divider */
 .landing-divider {
   width: 60px;
-  height: 2px;
+  height: 1px;
   background: #fff;
   margin: 20px auto;
 }
 
 /* Description */
 .landing-desc {
-  max-width: 700px;
+  max-width: 500px;
   margin: 0 auto 30px;
   font-size: 1rem;
   line-height: 1.6;
@@ -335,16 +335,17 @@ h6 {
 .landing-buttons .btn {
   margin: 0 10px;
   padding: 12px 28px;
-  border: 2px solid #fff;
-  border-radius: 6px;
+  border: 1px solid #fff;
+  border-radius: 10px;
   font-weight: 500;
   text-transform: uppercase;
   transition: all 0.3s ease;
 }
 
 .landing-buttons .btn:hover {
-  background: #e50914;
-  border-color: #e50914;
+  background: #ffffff;   /* background color on hover */
+  border-color: #ffffff; /* border color on hover */
+  color: #ff3131;        /* text color on hover */
 }
 
 /* Social Icons */
@@ -354,7 +355,7 @@ h6 {
 
 .landing-social a {
   color: #fff;
-  margin: 0 10px;
+  margin: 0 15px;
   font-size: 1.2rem;
   transition: color 0.3s ease;
 }
@@ -1225,6 +1226,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
