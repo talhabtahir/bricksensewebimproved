@@ -290,10 +290,10 @@ h6 {
 
 /* Logo */
 .landing-logo {
-  width: clamp(300px, 400vw, 700px); /* responsive scaling */
+  width: clamp(300px, 400vw, 650px); /* responsive scaling */
   height: auto; /* keep aspect ratio */
   display: block;
-  margin: 0 auto 1rem auto; /* center horizontally and add spacing below */
+  margin: 0 auto 0 auto; /* center horizontally and add spacing below */
     
 }
 
@@ -319,7 +319,7 @@ h6 {
   width: 60px;
   height: 1px;
   background: #fff;
-  margin: 20px auto;
+  margin: 10px auto 10px auto;
 }
 
 /* Description */
@@ -333,13 +333,19 @@ h6 {
 
 /* Buttons */
 .landing-buttons .btn {
+  display: inline-flex;                /* flex-based for alignment */
+  align-items: center;                 
+  justify-content: center;             /* centers text inside */
   margin: 0 10px;
-  padding: 12px 28px;
+  padding: 0.75rem 2rem;               /* scalable padding */
+  font-size: clamp(0.9rem, 2vw, 1.1rem); /* responsive font size */
+  min-width: 140px;                    /* prevents shrinking too much */
+  max-width: 240px;                    /* prevents oversized buttons */
   border: 1px solid #fff;
   border-radius: 10px;
   font-weight: 500;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease;;
 }
 
 .landing-buttons .btn:hover {
@@ -381,7 +387,7 @@ h6 {
     max-width: 90%;
   }
   .landing-logo {
-    max-width: 100px;
+    max-width: 650px;
   }
 }
 
@@ -405,7 +411,7 @@ h6 {
     width: 80%;
   }
   .landing-logo {
-    max-width: 80px;
+    max-width: 500px;
   }
 }
 
@@ -416,6 +422,9 @@ h6 {
   }
   .landing-title {
     font-size: 1.6rem;
+  }
+  .landing-logo {
+    max-width: 300px;
   }
   .landing-subtitle {
     font-size: 0.9rem;
@@ -1226,6 +1235,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
