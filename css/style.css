@@ -254,8 +254,8 @@ h6 {
 }
 
 /* ***********************************
-***********Landing Page888*********
-*********************************** */
+***********Landing Page***************
+**************************************/
 /* Landing Section */
 .landing {
   position: relative;
@@ -282,9 +282,13 @@ h6 {
 
 /* Logo */
 .landing-logo {
-  max-width: 120px;
-  margin-bottom: 20px;
+  width: clamp(60px, 12vw, 160px); /* responsive scaling */
+  height: auto; /* keep aspect ratio */
+  display: block;
+  margin: 0 auto 1rem auto; /* center horizontally and add spacing below */
+    
 }
+
 
 /* Title + Subtitle */
 .landing-title {
@@ -1213,6 +1217,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
