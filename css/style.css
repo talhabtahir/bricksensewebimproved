@@ -319,7 +319,7 @@ h6 {
   width: 60px;
   height: 1px;
   background: #fff;
-  margin: 10px auto 10px auto;
+  margin: 10px auto 30px auto;
 }
 
 /* Description */
@@ -424,7 +424,7 @@ h6 {
     font-size: 1.6rem;
   }
   .landing-logo {
-    max-width: 300px;
+    max-width: 270px;
   }
   .landing-subtitle {
     font-size: 0.9rem;
@@ -1235,6 +1235,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
