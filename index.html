@@ -31,31 +31,33 @@
         <link href="css/style.css" rel="stylesheet">
 
         <style>
-            /* Frosted glass modal content */
-            .modal-content {
-              background: rgba(255, 255, 255, 0.25); /* semi-transparent white */
-              backdrop-filter: blur(10px);
-              -webkit-backdrop-filter: blur(10px);
-              border: 1px solid rgba(255, 255, 255, 0.3);
-              border-radius: 30px;
-              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            }
-            /* Make modal content fit within viewport height */
+            /* Keep modal within viewport height */
             .modal-dialog {
               max-width: 95vw; /* keep your wide style */
               margin: auto;
             }
             
             .modal-content {
-              max-height: 90vh; /* 90% of viewport height */
               display: flex;
               flex-direction: column;
+              max-height: 90vh; /* 90% of viewport height */
+              overflow: hidden; /* prevent content from spilling out */
+              border-radius: 25px; /* adjust roundness here */
+              background: rgba(255, 255, 255, 0.25); /* frosted glass look */
+              backdrop-filter: blur(10px);
+              -webkit-backdrop-filter: blur(10px);
+              border: 1px solid rgba(255, 255, 255, 0.3);
+              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            }
+            
+            .modal-header {
+              flex-shrink: 0; /* keep header fixed at top */
             }
             
             .modal-body {
-              flex: 1 1 auto;
+              flex: 1 1 auto; /* take remaining space */
               overflow-y: auto; /* scroll inside if content is taller */
-              padding: 0; /* keep iframe flush */
+              padding: 0; /* remove padding so iframe fills */
             }
             
             .modal-body iframe {
@@ -803,6 +805,7 @@
 
     </body>
 </html>
+
 
 
 
