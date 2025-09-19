@@ -47,7 +47,7 @@
                                 <a href="#" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                              <a href="#app" id="open-iframe" class="nav-link">BrickSense App</a>
+                              <a href="#" id="open-iframe" class="nav-link">BrickSense App</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#about" class="nav-link">About</a>
@@ -98,7 +98,7 @@
         
             <!-- Buttons -->
             <div class="landing-buttons">
-              <a href="#app" class="btn btn-outline-light">Check App</a>
+              <a href="#" id="open-iframe-btn" class="btn btn-outline-light">Check App</a>
               <a href="#about" class="btn btn-outline-light">More Info</a>
             </div>
         
@@ -116,7 +116,7 @@
         <!-- Header End-->
         
         <!-- Iframe Section Start-->
-        <section id="iframe-section" style="display:none; padding:20px; background:#f9f9f9;">
+        <section id="iframe-section" style="display:none; padding:0; background:#f9f9f9;">
           <iframe id="content-frame" src="" width="100%" height="600" style="border:none;"></iframe>
         </section>
         <!-- Iframe Section End-->
@@ -715,18 +715,37 @@
       }
     </script>
     <script>
-      document.getElementById('open-iframe').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('iframe-section').style.display = 'block';
-        document.getElementById('content-frame').src = 'bricksenseapp.html'; // Change to your desired page
-        window.scrollTo({
-          top: document.getElementById('iframe-section').offsetTop,
-          behavior: 'smooth'
-        });
-      });
+          let iframeLoaded = false;
+        
+          function loadIframe() {
+            if (!iframeLoaded) {
+              document.getElementById('content-frame').src = 'https://bricksense.streamlit.app';
+              iframeLoaded = true;
+            }
+          }
+        
+          function showIframe(e) {
+            e.preventDefault();
+            loadIframe(); // ensures iframe loads even if clicked early
+            document.getElementById('iframe-section').style.display = 'block';
+            window.scrollTo({
+              top: document.getElementById('iframe-section').offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        
+          // Attach click events
+          document.getElementById('open-iframe').addEventListener('click', showIframe);
+          document.getElementById('open-iframe-btn').addEventListener('click', showIframe);
+        
+          // Preload iframe after 3 seconds
+          window.addEventListener('load', function() {
+            setTimeout(loadIframe, 3000);
+          });
     </script>
     </body>
 </html>
+
 
 
 
