@@ -743,8 +743,29 @@
             setTimeout(loadIframe, 3000);
           });
     </script>
+    <!-- NEW: Auto-hide iframe when navigating away -->
+    <script>
+      function hideIframe() {
+        document.getElementById('iframe-section').style.display = 'none';
+      }
+    
+      // Hide on any navbar link except the BrickSense App link
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        if (link.id !== 'open-iframe') {
+          link.addEventListener('click', hideIframe);
+        }
+      });
+    
+      // Hide on any landing button except the Check App button
+      document.querySelectorAll('.landing-buttons a').forEach(link => {
+        if (link.id !== 'open-iframe-btn') {
+          link.addEventListener('click', hideIframe);
+        }
+      });
+    </script>
     </body>
 </html>
+
 
 
 
