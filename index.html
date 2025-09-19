@@ -781,26 +781,57 @@
     
       window.addEventListener('scroll', hideIframeOnScroll);
     </script>
-    <!-- Hide iframe before scrolling to section -->
+    <!-- Force hide-then-scroll for navbar anchors to avoid offset -->
     <script>
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#') && href.length > 1 && link.id !== 'open-iframe') {
-        link.addEventListener('click', function(e) {
-          e.preventDefault(); // stop default jump
-          document.getElementById('iframe-section').style.display = 'none';
+      (function() {
+        const iframeSection = document.getElementById('iframe-section');
+        const navbar = document.querySelector('.navbar');
+        const NAVBAR_HEIGHT = navbar ? navbar.offsetHeight : 60;
+    
+        function hideIframe() {
+          if (iframeSection) iframeSection.style.display = 'none';
+        }
+    
+        // Capture-phase click handler to beat other smooth-scroll scripts
+        document.addEventListener('click', function(e) {
+          const link = e.target.closest('.navbar-nav .nav-link');
+          if (!link) return;
+    
+          const href = link.getAttribute('href');
+          // Ignore external links and your iframe trigger
+          if (!href || !href.startsWith('#') || href.length <= 1 || link.id === 'open-iframe') return;
+    
+          // Stop default jump and other click handlers from running
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+    
+          // Hide iframe BEFORE computing the scroll position
+          hideIframe();
+    
           const target = document.querySelector(href);
-          if (target) {
-            const yOffset = -60; // adjust for your fixed navbar height
-            const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          if (!target) return;
+    
+          // Wait a frame so layout updates after hiding the iframe
+          requestAnimationFrame(function() {
+            const y = target.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
             window.scrollTo({ top: y, behavior: 'smooth' });
-          }
-        });
-      }
-    });
+    
+            // Update the URL hash without causing another jump
+            if (history.pushState) {
+              history.pushState(null, '', href);
+            } else {
+              // Fallback: set hash after a tick to avoid immediate jump
+              setTimeout(() => { window.location.hash = href; }, 300);
+            }
+          });
+        }, true); // true = capture phase so this runs before other handlers
+      })();
     </script>
+
     </body>
 </html>
+
 
 
 
