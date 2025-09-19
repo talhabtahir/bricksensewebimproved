@@ -763,8 +763,27 @@
         }
       });
     </script>
+    <!-- NEW: Auto-hide iframe when scrolled fully out of view -->
+    <script>
+      function hideIframeOnScroll() {
+        const iframeSection = document.getElementById('iframe-section');
+    
+        // Only check if iframe is currently visible
+        if (iframeSection.style.display === 'block') {
+          const rect = iframeSection.getBoundingClientRect();
+    
+          // If the entire section is above OR below the viewport, hide it
+          if (rect.bottom < 0 || rect.top > window.innerHeight) {
+            iframeSection.style.display = 'none';
+          }
+        }
+      }
+    
+      window.addEventListener('scroll', hideIframeOnScroll);
+    </script>
     </body>
 </html>
+
 
 
 
