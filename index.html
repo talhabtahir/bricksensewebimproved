@@ -714,6 +714,7 @@
         navigator.serviceWorker.register('service-worker.js');
       }
     </script>
+    <!-- Java Script template for the BrickSense Streamlit iframe App -->    
     <script>
           let iframeLoaded = false;
         
@@ -799,7 +800,8 @@
     
           const href = link.getAttribute('href');
           // Ignore external links and your iframe trigger
-          if (!href || !href.startsWith('#') || href.length <= 1 || link.id === 'open-iframe') return;
+          // if (!href || !href.startsWith('#') || href.length <= 1 || link.id === 'open-iframe') return;
+          if (!href || link.id === 'open-iframe' || link.id === 'open-iframe-btn' || !href.startsWith('#') || href.length <= 1) return;  
     
           // Stop default jump and other click handlers from running
           e.preventDefault();
@@ -831,6 +833,7 @@
 
     </body>
 </html>
+
 
 
 
