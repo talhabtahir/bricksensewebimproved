@@ -40,14 +40,24 @@
             .modal-content {
               display: flex;
               flex-direction: column;
-              max-height: 90vh; /* 90% of viewport height */
-              overflow: hidden; /* prevent content from spilling out */
-              border-radius: 25px; /* adjust roundness here */
-              background: rgba(255, 255, 255, 0.25); /* frosted glass look */
+              max-height: 90vh;
+              overflow: hidden;
+              border-radius: 12px;
+              background: rgba(255, 255, 255, 0.1);
+              backdrop-filter: blur(6px);
+              -webkit-backdrop-filter: blur(6px);
+              border: none;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+/*               display: flex;
+              flex-direction: column;
+              max-height: 90vh; 
+              overflow: hidden; 
+              border-radius: 25px; 
+              background: rgba(255, 255, 255, 0.25); 
               backdrop-filter: blur(10px);
               -webkit-backdrop-filter: blur(10px);
               border: 1px solid rgba(255, 255, 255, 0.3);
-              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); */
             }
             
             .modal-header {
@@ -805,6 +815,7 @@
 
     </body>
 </html>
+
 
 
 
