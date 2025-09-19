@@ -781,8 +781,27 @@
     
       window.addEventListener('scroll', hideIframeOnScroll);
     </script>
+    <!-- Hide iframe before scrolling to section -->
+    <script>
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#') && href.length > 1 && link.id !== 'open-iframe') {
+        link.addEventListener('click', function(e) {
+          e.preventDefault(); // stop default jump
+          document.getElementById('iframe-section').style.display = 'none';
+          const target = document.querySelector(href);
+          if (target) {
+            const yOffset = -60; // adjust for your fixed navbar height
+            const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        });
+      }
+    });
+    </script>
     </body>
 </html>
+
 
 
 
