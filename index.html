@@ -46,8 +46,13 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link">Home</a>
                             </li>
-                            <li class="nav-item">
+<!--                             <li class="nav-item">
                               <a id="open-iframe" class="nav-link">BrickSense App</a>
+                            </li> -->
+                            <li class="nav-item">
+                              <button id="open-iframe" class="nav-link btn btn-link p-0" type="button">
+                                BrickSense App
+                              </button>
                             </li>
                             <li class="nav-item">
                                 <a href="#about" class="nav-link">About</a>
@@ -98,7 +103,10 @@
         
             <!-- Buttons -->
             <div class="landing-buttons">
-              <a href="#" id="open-iframe-btn" class="btn btn-outline-light">Check App</a>
+<!--               <a href="#" id="open-iframe-btn" class="btn btn-outline-light">Check App</a> -->
+                <button id="open-iframe-btn" class="btn btn-outline-light" type="button">
+                  Check App
+                </button>
               <a href="#about" class="btn btn-outline-light">More Info</a>
             </div>
         
@@ -766,8 +774,10 @@
     
       // Attach BrickSense App triggers on pointerdown + click in capture phase
       ['pointerdown', 'click'].forEach(evtType => {
-        document.getElementById('open-iframe').addEventListener(evtType, showIframe, true);
-        document.getElementById('open-iframe-btn').addEventListener(evtType, showIframe, true);
+        // Attach BrickSense App triggers directly (no capture, no pointerdown)
+        document.getElementById('open-iframe').addEventListener('click', showIframe);
+        document.getElementById('open-iframe-btn').addEventListener('click', showIframe);
+
       });
     
       // Preload iframe after 3 seconds
@@ -842,6 +852,7 @@
         
     </body>
 </html>
+
 
 
 
