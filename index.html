@@ -29,6 +29,18 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+
+        <style>
+            /* Frosted glass modal content */
+            .modal-content {
+              background: rgba(255, 255, 255, 0.25); /* semi-transparent white */
+              backdrop-filter: blur(10px);
+              -webkit-backdrop-filter: blur(10px);
+              border: 1px solid rgba(255, 255, 255, 0.3);
+              border-radius: 30px;
+              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            }
+        </style>
     </head>
 
     <body data-spy="scroll" data-target=".navbar" data-offset="51">
@@ -702,7 +714,7 @@
           <div class="modal-dialog modal-dialog-centered modal-xl" role="document" style="max-width: 95vw;">
             <div class="modal-content" style="height: 90vh;">
               <div class="modal-header">
-                <h5 class="modal-title">BrickSense App</h5>
+<!--                 <h5 class="modal-title"></h5> -->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -768,6 +780,7 @@
 
     </body>
 </html>
+
 
 
 
