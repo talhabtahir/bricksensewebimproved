@@ -714,125 +714,113 @@
         navigator.serviceWorker.register('service-worker.js');
       }
     </script>
-    <!-- Java Script template for the BrickSense Streamlit iframe App -->    
+      
     <script>
-          let iframeLoaded = false;
-        
-          function loadIframe() {
-            if (!iframeLoaded) {
-              document.getElementById('content-frame').src = 'https://bricksense.streamlit.app/?embedded=true';
-              iframeLoaded = true;
-            }
-          }
-        
-          function showIframe(e) {
-            e.preventDefault();
-            loadIframe(); // ensures iframe loads even if clicked early
-            document.getElementById('iframe-section').style.display = 'block';
-            window.scrollTo({
-              top: document.getElementById('iframe-section').offsetTop,
-              behavior: 'smooth'
-            });
-          }
-        
-          // Attach click events
-          document.getElementById('open-iframe').addEventListener('click', showIframe);
-          document.getElementById('open-iframe-btn').addEventListener('click', showIframe);
-        
-          // Preload iframe after 3 seconds
-          window.addEventListener('load', function() {
-            setTimeout(loadIframe, 3000);
-          });
-    </script>
-    <!-- NEW: Auto-hide iframe when navigating away -->
-    <script>
-      function hideIframe() {
-        document.getElementById('iframe-section').style.display = 'none';
-      }
-    
-      // Hide on any navbar link except the BrickSense App link
-      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-        if (link.id !== 'open-iframe') {
-          link.addEventListener('click', hideIframe);
-        }
-      });
-    
-      // Hide on any landing button except the Check App button
-      document.querySelectorAll('.landing-buttons a').forEach(link => {
-        if (link.id !== 'open-iframe-btn') {
-          link.addEventListener('click', hideIframe);
-        }
-      });
-    </script>
-    <!-- NEW: Auto-hide iframe when scrolled fully out of view -->
-    <script>
-      function hideIframeOnScroll() {
-        const iframeSection = document.getElementById('iframe-section');
-    
-        // Only check if iframe is currently visible
-        if (iframeSection.style.display === 'block') {
-          const rect = iframeSection.getBoundingClientRect();
-    
-          // If the entire section is above OR below the viewport, hide it
-          if (rect.bottom < 0 || rect.top > window.innerHeight) {
-            iframeSection.style.display = 'none';
-          }
-        }
-      }
-    
-      window.addEventListener('scroll', hideIframeOnScroll);
-    </script>
-    <!-- Force hide-then-scroll for navbar anchors to avoid offset -->
-    <script>
-      (function() {
-        const iframeSection = document.getElementById('iframe-section');
-        const navbar = document.querySelector('.navbar');
-        const NAVBAR_HEIGHT = navbar ? navbar.offsetHeight : 60;
-    
-        function hideIframe() {
-          if (iframeSection) iframeSection.style.display = 'none';
-        }
-    
-        // Capture-phase click handler to beat other smooth-scroll scripts
-        document.addEventListener('click', function(e) {
-          const link = e.target.closest('.navbar-nav .nav-link');
-          if (!link) return;
-    
-          const href = link.getAttribute('href');
-          // Ignore external links and your iframe trigger
-          // if (!href || !href.startsWith('#') || href.length <= 1 || link.id === 'open-iframe') return;
-          if (!href || link.id === 'open-iframe' || link.id === 'open-iframe-btn' || !href.startsWith('#') || href.length <= 1) return;  
-    
-          // Stop default jump and other click handlers from running
-          e.preventDefault();
-          e.stopPropagation();
-          e.stopImmediatePropagation();
-    
-          // Hide iframe BEFORE computing the scroll position
-          hideIframe();
-    
-          const target = document.querySelector(href);
-          if (!target) return;
-    
-          // Wait a frame so layout updates after hiding the iframe
-          requestAnimationFrame(function() {
-            const y = target.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-    
-            // Update the URL hash without causing another jump
-            if (history.pushState) {
-              history.pushState(null, '', href);
-            } else {
-              // Fallback: set hash after a tick to avoid immediate jump
-              setTimeout(() => { window.location.hash = href; }, 300);
-            }
-          });
-        }, true); // true = capture phase so this runs before other handlers
-      })();
-    </script>
+(function() {
+  const iframeSection = document.getElementById('iframe-section');
+  const iframe = document.getElementById('content-frame');
+  const iframeURL = 'https://bricksense.streamlit.app/?embedded=true';
+  const navbar = document.querySelector('.navbar');
+  const NAVBAR_HEIGHT = navbar ? navbar.offsetHeight : 60;
+  let iframeLoaded = false;
 
+  // Load iframe content
+  function loadIframe() {
+    if (!iframeLoaded) {
+      iframe.src = iframeURL;
+      iframeLoaded = true;
+    }
+  }
+
+  // Show iframe
+  function showIframe(e) {
+    e.preventDefault();
+    loadIframe();
+    iframeSection.style.display = 'block';
+    window.scrollTo({
+      top: iframeSection.offsetTop,
+      behavior: 'smooth'
+    });
+  }
+
+  // Hide iframe (keep loaded)
+  function hideIframe() {
+    iframeSection.style.display = 'none';
+  }
+
+  // Attach click events for BrickSense App triggers
+  document.getElementById('open-iframe').addEventListener('click', showIframe);
+  document.getElementById('open-iframe-btn').addEventListener('click', showIframe);
+
+  // Preload iframe after 3 seconds
+  window.addEventListener('load', function() {
+    setTimeout(loadIframe, 3000);
+  });
+
+  // Auto-hide on navigation (other navbar/landing links)
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    if (link.id !== 'open-iframe') {
+      link.addEventListener('click', hideIframe);
+    }
+  });
+  document.querySelectorAll('.landing-buttons a').forEach(link => {
+    if (link.id !== 'open-iframe-btn') {
+      link.addEventListener('click', hideIframe);
+    }
+  });
+
+  // Auto-hide on scroll (when fully out of view)
+  window.addEventListener('scroll', function() {
+    if (iframeSection.style.display === 'block') {
+      const rect = iframeSection.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hideIframe();
+      }
+    }
+  });
+
+  // Hide-before-scroll for section links (fix offset issue)
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('.navbar-nav .nav-link');
+    if (!link) return;
+
+    // Skip BrickSense App triggers entirely
+    if (link.id === 'open-iframe' || link.id === 'open-iframe-btn') {
+      return; // Let showIframe() handle it
+    }
+
+    const href = link.getAttribute('href');
+    if (!href || !href.startsWith('#') || href.length <= 1) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    hideIframe();
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    requestAnimationFrame(function() {
+      const y = target.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+
+      if (history.pushState) {
+        history.pushState(null, '', href);
+      } else {
+        setTimeout(() => { window.location.hash = href; }, 300);
+      }
+    });
+  }, true); // capture phase
+})();
+</script>
+
+    
+
+        
     </body>
 </html>
+
 
 
 
