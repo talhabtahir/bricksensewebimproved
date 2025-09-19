@@ -47,7 +47,7 @@
                                 <a href="#" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                              <a href="#" id="open-iframe" class="nav-link">BrickSense App</a>
+                              <a href="javascript:void(0)" id="open-iframe" class="nav-link">BrickSense App</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#about" class="nav-link">About</a>
@@ -98,7 +98,7 @@
         
             <!-- Buttons -->
             <div class="landing-buttons">
-              <a href="#" id="open-iframe-btn" class="btn btn-outline-light">Check App</a>
+              <a href="javascript:void(0)" id="open-iframe-btn" class="btn btn-outline-light">Check App</a>
               <a href="#about" class="btn btn-outline-light">More Info</a>
             </div>
         
@@ -721,104 +721,108 @@
 
 
 
-    <script>
-    (function() {
-      const iframeSection = document.getElementById('iframe-section');
-      const iframe = document.getElementById('content-frame');
-      const iframeURL = 'https://bricksense.streamlit.app/?embedded=true';
-      const navbar = document.querySelector('.navbar');
-      const NAVBAR_HEIGHT = navbar ? navbar.offsetHeight : 60;
-      let iframeLoaded = false;
-    
-      function loadIframe() {
-        if (!iframeLoaded) {
-          iframe.src = iframeURL;
-          iframeLoaded = true;
-        }
-      }
-    
-      function showIframe(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation(); // stop anything else from hijacking
-        loadIframe();
-        iframeSection.style.display = 'block';
-        window.scrollTo({
-          top: iframeSection.offsetTop,
-          behavior: 'smooth'
-        });
-      }
-    
-      function hideIframe() {
-        iframeSection.style.display = 'none';
-      }
-    
-      // Attach BrickSense App triggers in CAPTURE phase so they always win
-      document.getElementById('open-iframe').addEventListener('click', showIframe, true);
-      document.getElementById('open-iframe-btn').addEventListener('click', showIframe, true);
-    
-      // Preload iframe after 3 seconds
-      window.addEventListener('load', function() {
-        setTimeout(loadIframe, 3000);
-      });
-    
-      // Auto-hide on navigation (other navbar/landing links)
-      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-        if (link.id !== 'open-iframe') {
-          link.addEventListener('click', hideIframe);
-        }
-      });
-      document.querySelectorAll('.landing-buttons a').forEach(link => {
-        if (link.id !== 'open-iframe-btn') {
-          link.addEventListener('click', hideIframe);
-        }
-      });
-    
-      // Auto-hide on scroll (when fully out of view)
-      window.addEventListener('scroll', function() {
-        if (iframeSection.style.display === 'block') {
-          const rect = iframeSection.getBoundingClientRect();
-          if (rect.bottom < 0 || rect.top > window.innerHeight) {
-            hideIframe();
-          }
-        }
-      });
-    
-      // Hide-before-scroll for section links (fix offset issue)
-      document.addEventListener('click', function(e) {
-        const link = e.target.closest('.navbar-nav .nav-link');
-        if (!link) return;
-    
-        // Skip BrickSense App triggers entirely
-        if (link.id === 'open-iframe' || link.id === 'open-iframe-btn') {
-          return;
-        }
-    
-        const href = link.getAttribute('href');
-        if (!href || !href.startsWith('#') || href.length <= 1) return;
-    
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-    
+<script>
+(function() {
+  const iframeSection = document.getElementById('iframe-section');
+  const iframe = document.getElementById('content-frame');
+  const iframeURL = 'https://bricksense.streamlit.app/?embedded=true';
+  const navbar = document.querySelector('.navbar');
+  const NAVBAR_HEIGHT = navbar ? navbar.offsetHeight : 60;
+  let iframeLoaded = false;
+
+  // Load iframe content
+  function loadIframe() {
+    if (!iframeLoaded) {
+      iframe.src = iframeURL;
+      iframeLoaded = true;
+    }
+  }
+
+  // Show iframe
+  function showIframe(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation(); // block other handlers
+    loadIframe();
+    iframeSection.style.display = 'block';
+    window.scrollTo({
+      top: iframeSection.offsetTop,
+      behavior: 'smooth'
+    });
+  }
+
+  // Hide iframe (keep loaded)
+  function hideIframe() {
+    iframeSection.style.display = 'none';
+  }
+
+  // Attach BrickSense App triggers with full control
+  document.getElementById('open-iframe').addEventListener('click', showIframe, true);
+  document.getElementById('open-iframe-btn').addEventListener('click', showIframe, true);
+
+  // Preload iframe after 3 seconds
+  window.addEventListener('load', function() {
+    setTimeout(loadIframe, 3000);
+  });
+
+  // Auto-hide on navigation (other navbar/landing links)
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    if (link.id !== 'open-iframe') {
+      link.addEventListener('click', hideIframe);
+    }
+  });
+  document.querySelectorAll('.landing-buttons a').forEach(link => {
+    if (link.id !== 'open-iframe-btn') {
+      link.addEventListener('click', hideIframe);
+    }
+  });
+
+  // Auto-hide on scroll (when fully out of view)
+  window.addEventListener('scroll', function() {
+    if (iframeSection.style.display === 'block') {
+      const rect = iframeSection.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
         hideIframe();
-    
-        const target = document.querySelector(href);
-        if (!target) return;
-    
-        requestAnimationFrame(function() {
-          const y = target.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-    
-          if (history.pushState) {
-            history.pushState(null, '', href);
-          } else {
-            setTimeout(() => { window.location.hash = href; }, 300);
-          }
-        });
-      }, true); // capture phase
-    })();
-    </script>
+      }
+    }
+  });
+
+  // Hide-before-scroll for section links (fix offset issue)
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('.navbar-nav .nav-link');
+    if (!link) return;
+
+    // Skip BrickSense App triggers entirely
+    if (link.id === 'open-iframe' || link.id === 'open-iframe-btn') {
+      return;
+    }
+
+    const href = link.getAttribute('href');
+    if (!href || !href.startsWith('#') || href.length <= 1) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    hideIframe();
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    requestAnimationFrame(function() {
+      const y = target.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+
+      if (history.pushState) {
+        history.pushState(null, '', href);
+      } else {
+        setTimeout(() => { window.location.hash = href; }, 300);
+      }
+    });
+  }, true); // capture phase
+})();
+</script>
+
 
 
 
@@ -827,6 +831,7 @@
         
     </body>
 </html>
+
 
 
 
