@@ -607,7 +607,6 @@ h6 {
 }
 
 #about .about-img img {
-    width: 100%;   /* fills parent container */
     max-width: 100%; /* but won’t exceed 545px */
     max-height: 100%; /* but won’t exceed 545px */
 
@@ -1282,6 +1281,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
