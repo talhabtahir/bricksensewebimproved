@@ -608,8 +608,9 @@ h6 {
 
 #about .about-img img {
     width: 100%;   /* fills parent container */
-    max-width: 545px; /* but won’t exceed 545px */
-    height: auto;
+    max-width: 100%; /* but won’t exceed 545px */
+    max-height: 100%; /* but won’t exceed 545px */
+
 }
 
 @media (max-width: 767.98px) {
