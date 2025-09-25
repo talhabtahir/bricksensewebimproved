@@ -768,8 +768,19 @@
         <div class="modal fade" id="appModal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-xl" role="document" style="max-width: 95vw;">
             <div class="modal-content" style="height: 90vh;">
-              <div class="modal-header">
-<!--                 <h5 class="modal-title"></h5> -->
+              <!-- <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div> -->
+              <!-- Modal Header with Refresh Button -->
+              <div class="modal-header d-flex justify-content-between align-items-center">
+                <div>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="reloadIframe()" title="Refresh">
+                    <i class="fas fa-sync-alt"></i>
+                  </button>
+                </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -831,10 +842,16 @@
           if (navTrigger) navTrigger.addEventListener('click', openModal);
           if (btnTrigger) btnTrigger.addEventListener('click', openModal);
         })();
+        //Reload function
+          function reloadIframe() {
+            const iframe = document.getElementById('content-frame');
+            iframe.src = iframe.src;
+          }
         </script>
 
     </body>
 </html>
+
 
 
 
