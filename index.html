@@ -922,7 +922,18 @@
           </div>
         </div>
 
-
+        <!-- iOS Install Modal -->
+        <div id="iosModal" class="ios-modal">
+          <div class="ios-modal-content">
+            <span id="iosClose" class="ios-close">&times;</span>
+            <h3>Install on iOS</h3>
+            <p>
+              <i class="fa-solid fa-share-from-square"></i> Tap the <strong>Share</strong> button in Safari
+              <br>
+              <i class="fa-solid fa-plus"></i> Then choose <strong>Add to Home Screen</strong>
+            </p>
+          </div>
+        </div>
         
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -978,6 +989,7 @@
             iframe.src = iframe.src;
           }
         </script>
+        
         <script>
           let deferredPrompt;
           const androidBtn = document.getElementById('installBtnAndroid');
@@ -1019,12 +1031,24 @@
           //     alert('To install: Tap the Share button in Safari, then choose "Add to Home Screen".');
           //   });
           // }
-          if (isIos && !isStandalone) {
-            iosBtn.style.display = 'inline-block';
-            iosBtn.addEventListener('click', () => {
-                document.getElementById('iosInstructions').style.display = 'block';
+            if (isIos && !isStandalone) {
+              iosBtn.style.display = 'inline-block';
+              iosBtn.addEventListener('click', () => {
+                document.getElementById('iosModal').style.display = 'block';
+              });
+            }
+            
+            // Close modal when clicking ×
+            document.getElementById('iosClose').addEventListener('click', () => {
+              document.getElementById('iosModal').style.display = 'none';
             });
-           }
+            
+            // Close modal when clicking outside the box
+            window.addEventListener('click', (e) => {
+              if (e.target.id === 'iosModal') {
+                document.getElementById('iosModal').style.display = 'none';
+              }
+            });
         
           // Optional: log when installed
           window.addEventListener('appinstalled', () => {
@@ -1034,6 +1058,7 @@
 
     </body>
 </html>
+
 
 
 
