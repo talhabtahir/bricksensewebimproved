@@ -844,7 +844,6 @@ h6 {
   inset: 0; /* shorthand for top/right/bottom/left:0 */
   background-color: rgba(0, 0, 0, 0.4); /* transparent dark overlay */
   backdrop-filter: blur(6px); /* blur effect */
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -1386,6 +1385,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
