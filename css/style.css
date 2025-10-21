@@ -794,8 +794,8 @@ h6 {
 
 /* Primary button (Android/Chrome) */
 .btn-bricksense-primary {
-  background-color: #e63946;   /* Example: your brand’s red */
-  border-color: #e63946;
+  background-color: #be1e2d;   /* Example: your brand’s red */
+  border-color: #be1e2d;
   color: #fff;
   font-weight: 600;
   padding: 12px 24px;
@@ -804,14 +804,14 @@ h6 {
 }
 
 .btn-bricksense-primary:hover {
-  background-color: #c92d3b;
-  border-color: #c92d3b;
+  background-color: #ffffff;
+  border-color: #be1e2d;
 }
 
 /* Secondary button (iOS) */
 .btn-bricksense-secondary {
-  background-color: #457b9d;   /* Example: your brand’s blue */
-  border-color: #457b9d;
+  background-color: #be1e2d;   /* Example: your brand’s blue */
+  border-color: #be1e2d;
   color: #fff;
   font-weight: 600;
   padding: 12px 24px;
@@ -820,8 +820,8 @@ h6 {
 }
 
 .btn-bricksense-secondary:hover {
-  background-color: #35607a;
-  border-color: #35607a;
+  background-color: #ffffff;
+  border-color: #be1e2d;
 }
 
 
@@ -1312,6 +1312,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
