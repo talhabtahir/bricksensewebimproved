@@ -369,12 +369,15 @@
         
             <!-- Install Buttons -->
             <div class="text-center mt-4">
-              <!-- Android/Chrome/desktop -->
-              <button id="installBtn" class="btn btn-bricksense-primary" style="display:none;">
-                <i class="fa fa-download"></i> Install App (Android/Chrome)
+              <!-- Android -->
+              <button id="installBtnAndroid" class="btn btn-bricksense-primary" style="display:none;">
+                <i class="fa-brands fa-android"></i> Install App (Android)
               </button>
-            
-              <!-- iOS Safari -->
+              <!-- Desktop -->
+              <button id="installBtnDesktop" class="btn btn-bricksense-primary" style="display:none;">
+                <i class="fa-solid fa-download"></i> Install App (Desktop)
+              </button>
+              <!-- iOS -->
               <button id="iosBtn" class="btn btn-bricksense-secondary" style="display:none;">
                 <i class="fa-brands fa-apple"></i> Install App (iOS)
               </button>
@@ -967,29 +970,40 @@
         </script>
         <script>
           let deferredPrompt;
-          const installBtn = document.getElementById('installBtn');
+          const androidBtn = document.getElementById('installBtnAndroid');
+          const desktopBtn = document.getElementById('installBtnDesktop');
           const iosBtn = document.getElementById('iosBtn');
         
-          // Android/Chrome/desktop
+          // Handle Android/Chrome/Desktop
           window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            installBtn.style.display = 'inline-block';
+        
+            const ua = navigator.userAgent.toLowerCase();
+            if (ua.includes("android")) {
+              androidBtn.style.display = 'inline-block';
+            } else {
+              desktopBtn.style.display = 'inline-block';
+            }
           });
         
-          installBtn.addEventListener('click', async () => {
-            installBtn.style.display = 'none';
+          androidBtn.addEventListener('click', async () => {
             deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log(`User response: ${outcome}`);
+            await deferredPrompt.userChoice;
             deferredPrompt = null;
           });
         
-          // iOS Safari detection
-          const isIos = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-          const isInStandalone = window.matchMedia('(display-mode: standalone)').matches;
+          desktopBtn.addEventListener('click', async () => {
+            deferredPrompt.prompt();
+            await deferredPrompt.userChoice;
+            deferredPrompt = null;
+          });
         
-          if (isIos && !isInStandalone) {
+          // Handle iOS Safari
+          const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+          const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+        
+          if (isIos && !isStandalone) {
             iosBtn.style.display = 'inline-block';
             iosBtn.addEventListener('click', () => {
               alert('To install: Tap the Share button in Safari, then choose "Add to Home Screen".');
@@ -1004,6 +1018,7 @@
 
     </body>
 </html>
+
 
 
 
