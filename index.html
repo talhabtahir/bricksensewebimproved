@@ -381,6 +381,16 @@
               <button id="iosBtn" class="btn btn-bricksense-secondary" style="display:none;">
                 <i class="fa-brands fa-apple"></i> Install App (iOS)
               </button>
+              <!-- Hidden iOS instructions (revealed on click) -->
+              <div id="iosInstructions" class="ios-instructions" style="display:none;">
+                <p>
+                  To install this app:
+                  <br>
+                  <i class="fa-solid fa-share-from-square"></i> Tap the <strong>Share</strong> button in Safari
+                  <br>
+                  <i class="fa-solid fa-plus"></i> Then choose <strong>Add to Home Screen</strong>
+                </p>
+              </div>
             </div>
               
             <!-- <div class="text-center mt-4">
@@ -1003,12 +1013,18 @@
           const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
           const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
         
+          // if (isIos && !isStandalone) {
+          //   iosBtn.style.display = 'inline-block';
+          //   iosBtn.addEventListener('click', () => {
+          //     alert('To install: Tap the Share button in Safari, then choose "Add to Home Screen".');
+          //   });
+          // }
           if (isIos && !isStandalone) {
             iosBtn.style.display = 'inline-block';
             iosBtn.addEventListener('click', () => {
-              alert('To install: Tap the Share button in Safari, then choose "Add to Home Screen".');
+                document.getElementById('iosInstructions').style.display = 'block';
             });
-          }
+           }
         
           // Optional: log when installed
           window.addEventListener('appinstalled', () => {
@@ -1018,6 +1034,7 @@
 
     </body>
 </html>
+
 
 
 
