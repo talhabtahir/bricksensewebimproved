@@ -1012,24 +1012,24 @@
           //     alert('To install: Tap the Share button in Safari, then choose "Add to Home Screen".');
           //   });
           // }
-          if (isIos && !isStandalone) {
-            iosBtn.style.display = 'inline-block';
-            iosBtn.addEventListener('click', () => {
-              document.getElementById('iosModal').style.display = 'flex';
-            });
-          }
-        
-          // Close modal when clicking ×
-          document.getElementById('iosClose').addEventListener('click', () => {
-            document.getElementById('iosModal').style.display = 'none';
-          });
-        
-          // Close modal when clicking outside the box
-          window.addEventListener('click', (e) => {
-            if (e.target.id === 'iosModal') {
-              document.getElementById('iosModal').style.display = 'none';
-            }
-          });
+              if (isIos && !isStandalone) {
+                iosBtn.style.display = 'inline-block';
+                iosBtn.addEventListener('click', () => {
+                  document.getElementById('iosModal').style.display = 'flex';
+                });
+              }
+            
+              // Close modal when clicking ×
+              document.getElementById('iosClose').addEventListener('click', () => {
+                document.getElementById('iosModal').style.display = 'none';
+              });
+            
+              // Close modal when clicking outside the box
+              window.addEventListener('click', (e) => {
+                if (e.target.id === 'iosModal') {
+                  document.getElementById('iosModal').style.display = 'none';
+                }
+              });
 
         
           // Optional: log when installed
@@ -1040,6 +1040,7 @@
 
     </body>
 </html>
+
 
 
 
