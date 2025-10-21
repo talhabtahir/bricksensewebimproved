@@ -850,7 +850,7 @@ h6 {
 
 /* Modal box */
 .ios-modal-content {
-  background: rgba(255, 255, 255, 0.3); /* semi‑transparent white */
+  background: rgba(255, 255, 255, 0.7); /* semi‑transparent white */
   backdrop-filter: blur(12px);           /* frosted blur effect */
   -webkit-backdrop-filter: blur(12px);   /* Safari/iOS support */
   color: #000;                           /* switch text to black for readability */
@@ -860,7 +860,8 @@ h6 {
   max-width: 400px;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  animation: fadeIn 0.3s ease;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+  animation: iosfadeIn 0.3s ease;
 }
 
 /* Heading */
@@ -892,7 +893,7 @@ h6 {
 }
 
 /* Simple fade-in animation */
-@keyframes fadeIn {
+@keyframes iosfadeIn {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
@@ -1385,6 +1386,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
