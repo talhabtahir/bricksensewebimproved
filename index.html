@@ -904,11 +904,14 @@
         <div id="iosModal" class="ios-modal">
           <div class="ios-modal-content">
             <span id="iosClose" class="ios-close">&times;</span>
-            <h3>Install on iOS</h3>
+            <h3 class="ios-heading">Instructions</h3>
             <p>
-              <i class="fa-solid fa-share-from-square"></i> Tap the <strong>Share</strong> button in Safari
-              <br>
-              <i class="fa-solid fa-plus"></i> Then choose <strong>Add to Home Screen</strong>
+              <i class="fa-solid fa-share-from-square fa-2x"></i>
+              Tap the <strong>Share</strong> button in the browser
+            </p>
+            <p>
+              <i class="fa-solid fa-plus fa-2x"></i>
+              Choose <strong>Add to Home Screen</strong>
             </p>
           </div>
         </div>
@@ -1009,24 +1012,25 @@
           //     alert('To install: Tap the Share button in Safari, then choose "Add to Home Screen".');
           //   });
           // }
-            if (isIos && !isStandalone) {
-              iosBtn.style.display = 'inline-block';
-              iosBtn.addEventListener('click', () => {
-                document.getElementById('iosModal').style.display = 'block';
-              });
-            }
-            
-            // Close modal when clicking ×
-            document.getElementById('iosClose').addEventListener('click', () => {
+          if (isIos && !isStandalone) {
+            iosBtn.style.display = 'inline-block';
+            iosBtn.addEventListener('click', () => {
+              document.getElementById('iosModal').style.display = 'flex';
+            });
+          }
+        
+          // Close modal when clicking ×
+          document.getElementById('iosClose').addEventListener('click', () => {
+            document.getElementById('iosModal').style.display = 'none';
+          });
+        
+          // Close modal when clicking outside the box
+          window.addEventListener('click', (e) => {
+            if (e.target.id === 'iosModal') {
               document.getElementById('iosModal').style.display = 'none';
-            });
-            
-            // Close modal when clicking outside the box
-            window.addEventListener('click', (e) => {
-              if (e.target.id === 'iosModal') {
-                document.getElementById('iosModal').style.display = 'none';
-              }
-            });
+            }
+          });
+
         
           // Optional: log when installed
           window.addEventListener('appinstalled', () => {
@@ -1036,6 +1040,7 @@
 
     </body>
 </html>
+
 
 
 
