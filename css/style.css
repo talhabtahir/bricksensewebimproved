@@ -836,6 +836,39 @@ h6 {
   margin-right: 6px;
   color: #f1faee; /* light accent */
 }
+/* Modal background */
+.ios-modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+/* Modal box */
+.ios-modal-content {
+  background-color: #457b9d; /* your brand blue */
+  color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Close button */
+.ios-close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  color: #f1faee;
+}
+.ios-close:hover {
+  color: #fff;
+}
 
 /**********************************/
 /********** Products CSS **********/
@@ -1324,6 +1357,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
