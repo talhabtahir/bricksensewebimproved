@@ -298,7 +298,7 @@
         <!-- Feature End-->
 
         <!-- Activation Start-->
-        <div id="activation">
+        <!-- <div id="activation">
             <div class="container">
                 <div class="section-header">
                     <h2>How to Use?</h2>
@@ -316,7 +316,7 @@
                             </p>
                         </div>
                     </div>
-                    <!-- <div class="col-md-4">
+                    <div class="col-md-4">
                         <div class="activation-col">
                             <i class="fa fa-sliders-h"></i>
                             <h2>Let AI Analyze</h2>
@@ -324,7 +324,7 @@
                                 Our AI instantly checks the brick for class, cracks, and key properties.
                             </p>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="col-md-4">
                         <div class="activation-col">
                             <i class="fa fa-check"></i>
@@ -336,7 +336,52 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div id="activation">
+          <div class="container">
+            <div class="section-header">
+              <h2>How to Install the App</h2>
+              <p>Follow these simple steps to add The Brick Sense to your home screen</p>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <div class="activation-col">
+                  <i class="fa fa-mobile-alt"></i>
+                  <h2>Step 1</h2>
+                  <p>Open this website in your browser (Chrome on Android or Safari on iOS).</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="activation-col">
+                  <i class="fa fa-hand-pointer"></i>
+                  <h2>Step 2</h2>
+                  <p>Tap the install button below (Android/Chrome) or use the Share menu (iOS).</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="activation-col">
+                  <i class="fa fa-check-circle"></i>
+                  <h2>Step 3</h2>
+                  <p>Confirm installation and enjoy The Brick Sense as a web app on your home screen.</p>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Install Buttons -->
+            <div class="text-center mt-4">
+              <!-- Android/Chrome/desktop -->
+              <button id="installBtn" class="btn btn-primary" style="display:none;">
+                Install App (Android/Chrome)
+              </button>
+        
+              <!-- iOS Safari -->
+              <button id="iosBtn" class="btn btn-secondary" style="display:none;">
+                Install App (iOS)
+              </button>
+            </div>
+          </div>
         </div>
+
         <!-- Activation End-->
         
         
@@ -908,9 +953,46 @@
             iframe.src = iframe.src;
           }
         </script>
+        <script>
+          let deferredPrompt;
+          const installBtn = document.getElementById('installBtn');
+          const iosBtn = document.getElementById('iosBtn');
+        
+          // Android/Chrome/desktop
+          window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'inline-block';
+          });
+        
+          installBtn.addEventListener('click', async () => {
+            installBtn.style.display = 'none';
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response: ${outcome}`);
+            deferredPrompt = null;
+          });
+        
+          // iOS Safari detection
+          const isIos = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+          const isInStandalone = window.matchMedia('(display-mode: standalone)').matches;
+        
+          if (isIos && !isInStandalone) {
+            iosBtn.style.display = 'inline-block';
+            iosBtn.addEventListener('click', () => {
+              alert('To install: Tap the Share button in Safari, then choose "Add to Home Screen".');
+            });
+          }
+        
+          // Optional: log when installed
+          window.addEventListener('appinstalled', () => {
+            console.log('PWA installed successfully!');
+          });
+        </script>
 
     </body>
 </html>
+
 
 
 
