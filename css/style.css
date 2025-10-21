@@ -836,39 +836,66 @@ h6 {
   margin-right: 6px;
   color: #f1faee; /* light accent */
 }
-/* Modal background */
+/* Modal background with blur */
 .ios-modal {
   display: none; /* hidden by default */
   position: fixed;
   z-index: 9999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  inset: 0; /* shorthand for top/right/bottom/left:0 */
+  background-color: rgba(0, 0, 0, 0.4); /* transparent dark overlay */
+  backdrop-filter: blur(6px); /* blur effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Modal box */
 .ios-modal-content {
   background-color: #457b9d; /* your brand blue */
   color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
   max-width: 400px;
   text-align: center;
-  font-size: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Heading */
+.ios-heading {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 /* Close button */
 .ios-close {
-  float: right;
-  font-size: 24px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
   cursor: pointer;
   color: #f1faee;
 }
 .ios-close:hover {
   color: #fff;
 }
+
+/* Larger icons */
+.ios-modal-content i {
+  margin-right: 8px;
+  vertical-align: middle;
+  color: #f1faee;
+}
+
+/* Simple fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 
 /**********************************/
 /********** Products CSS **********/
@@ -1357,6 +1384,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
