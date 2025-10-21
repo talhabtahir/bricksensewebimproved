@@ -842,7 +842,7 @@ h6 {
   position: fixed;
   z-index: 9999;
   inset: 0; /* shorthand for top/right/bottom/left:0 */
-  background-color: rgba(0, 0, 0, 0.4); /* transparent dark overlay */
+  background-color: rgba(0, 0, 0, 0.7); /* transparent dark overlay */
   backdrop-filter: blur(6px); /* blur effect */
   align-items: center;
   justify-content: center;
@@ -850,6 +850,7 @@ h6 {
 
 /* Modal box */
 .ios-modal-content {
+  position: relative;   
   background: rgba(255, 255, 255, 0.7); /* semi‑transparent white */
   backdrop-filter: blur(12px);           /* frosted blur effect */
   -webkit-backdrop-filter: blur(12px);   /* Safari/iOS support */
@@ -1386,6 +1387,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
