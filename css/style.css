@@ -880,7 +880,7 @@ h6 {
   right: 20px;
   font-size: 28px;
   cursor: pointer;
-  color: #f1faee;
+  color: #be1e2d;
 }
 .ios-close:hover {
   color: #fff;
@@ -890,7 +890,7 @@ h6 {
 .ios-modal-content i {
   margin-right: 8px;
   vertical-align: middle;
-  color: #f1faee;
+  color: #be1e2d;
 }
 
 /* Simple fade-in animation */
@@ -1387,6 +1387,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
