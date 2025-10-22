@@ -826,7 +826,7 @@ h6 {
 .ios-instructions {
   margin-top: 15px;
   padding: 15px;
-  background-color: #457b9d; /* your brand blue */
+  /* background-color: #457b9d; /* your brand blue */ */
   color: #fff;
   border-radius: 6px;
   font-size: 1rem;
@@ -1391,6 +1391,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
