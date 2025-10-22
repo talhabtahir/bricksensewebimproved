@@ -872,6 +872,10 @@ h6 {
   font-size: 1.5rem;
   font-weight: 700;
 }
+/* instructions content */
+.ios-instructions {
+  text-align: left;
+}
 
 /* Close button */
 .ios-close {
@@ -1387,6 +1391,7 @@ h6 {
 #footer p a:hover {
     color: #ffffff;
 }
+
 
 
 
